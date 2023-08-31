@@ -1,27 +1,18 @@
 def do_sum(n):
-    len_n = len(str(n))
-    sum_n = 0
-    if len_n == 1:
-        sum_n = n + n
-    else:
-        sum_n = n + sum(map(int, str(n)))
-    return sum_n
+    return n + sum(map(int, str(n)))
 
 N = int(input())
+len_N = len(str(N))
 num_list = []
 
-len_N = len(str(N))
-
-for i in range(1, N):
+for i in range(max(1, N - 9 * len_N), N):
     check_num = do_sum(i)
     if check_num == N:
         num_list.append(i)
-    else:
-        continue
-        
-if len(num_list) == 0:
-    print(0)
-else:
+
+if num_list:
     print(min(num_list))
+else:
+    print(0)
     
    
